@@ -3,15 +3,19 @@ function Header() {
     <div class="header">
       <div class="container">
         <div class="header__logo">
-          <img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
+          <img
+            width="38"
+            src="https://png.pngtree.com/png-clipart/20220719/original/pngtree-pizza-logo-design-png-image_8363624.png"
+            alt="Pizza logo"
+          />
           <div>
             <h1>React Pizza</h1>
-            <p>самая вкусная пицца во вселенной</p>
+            <p>La pizza mas rica del mundo</p>
           </div>
         </div>
         <div class="header__cart">
           <a href="/cart.html" class="button button--cart">
-            <span>520 ₽</span>
+            <span>16€</span>
             <div class="button__delimiter"></div>
             <svg
               width="18"

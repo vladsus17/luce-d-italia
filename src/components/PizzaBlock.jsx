@@ -9,8 +9,8 @@ function PizzaBlock(props) {
       <h4 class="pizza-block__title">{props.title}</h4>
       <div class="pizza-block__selector">
         <ul>
-          <li class="active">тонкое</li>
-          <li>традиционное</li>
+          <li class="active">Finas</li>
+          <li>Tradicionales</li>
         </ul>
         <ul>
           <li class="active">26 см.</li>
@@ -19,7 +19,7 @@ function PizzaBlock(props) {
         </ul>
       </div>
       <div class="pizza-block__bottom">
-        <div class="pizza-block__price">desde {props.price}</div>
+        <div class="pizza-block__price">desde {props.price}€</div>
         <div class="button button--outline button--add">
           <svg
             width="12"
@@ -32,7 +32,7 @@ function PizzaBlock(props) {
               fill="white"
             />
           </svg>
-          <span>Добавить</span>
+          <span>Añadir</span>
           <i>2</i>
         </div>
       </div>

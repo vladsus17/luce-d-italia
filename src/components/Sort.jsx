@@ -13,14 +13,14 @@ function Sort() {
             fill="#2C2C2C"
           />
         </svg>
-        <b>Сортировка по:</b>
-        <span>популярности</span>
+        <b>Ordenar por:</b>
+        <span>populares</span>
       </div>
       <div class="sort__popup">
         <ul>
-          <li class="active">популярности</li>
-          <li>цене</li>
-          <li>алфавиту</li>
+          <li class="active">populares</li>
+          <li>precio</li>
+          <li>letra</li>
         </ul>
       </div>
     </div>
