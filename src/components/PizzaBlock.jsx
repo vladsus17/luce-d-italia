@@ -1,6 +1,9 @@
 import React from 'react';
 
-function PizzaBlock({ title, price }) {
+function PizzaBlock({ title, price, image, sizes, types }) {
+  const [activeType, setActiveType] = React.useState(0);
+  const [activeSize, setActiveSize] = React.useState(0);
+  const typeName = ['Fina', 'Tradicional'];
   const [pizzaCount, setPizzaCount] = React.useState(0);
 
   const onClickAddButton = () => {
@@ -9,21 +12,24 @@ function PizzaBlock({ title, price }) {
 
   return (
     <div className="pizza-block">
-      <img
-        className="pizza-block__image"
-        src="https://peaceloveandlowcarb.com/wp-content/uploads/2021/12/Bacon-Cheeseburger-Pizza-37-scaled.jpg"
-        alt="Pizza"
-      />
+      <img className="pizza-block__image" src={image} alt="Pizza" />
       <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
         <ul>
-          <li className="active">Finas</li>
-          <li>Tradicionales</li>
+          {types.map((typeId) => (
+            <li
+              onClick={() => setActiveType(typeId)}
+              className={activeType === typeId ? 'active' : ''}>
+              {typeName[typeId]}
+            </li>
+          ))}
         </ul>
         <ul>
-          <li className="active">26 см.</li>
-          <li>30 см.</li>
-          <li>40 см.</li>
+          {sizes.map((size, id) => (
+            <li onClick={() => setActiveSize(id)} className={activeSize === id ? 'active' : ''}>
+              {size} cm.
+            </li>
+          ))}
         </ul>
       </div>
       <div className="pizza-block__bottom">

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 0,
+    "image": "https://images.pizzahut.es/Products/Original/ph_pizzasupreme_card-1713.jpg",
+    "title": "Supreme",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 14,
+    "category": 0,
+    "rating": 4
+  },
+  {
+    "id": 1,
+    "image": "https://images.pizzahut.es/Products/Original/card-1654.jpg",
+    "title": "Queso cabra",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 12,
+    "category": 0,
+    "rating": 6
+  },
+  {
+    "id": 2,
+    "image": "https://images.pizzahut.es/Products/Original/ph_pizzabarbacoa_card-1720.jpg",
+    "title": "Barbacoa",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 12,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "image": "https://images.pizzahut.es/Products/Original/ph_pizzapolloalaparrilla_card-1729.jpg",
+    "title": "Pollo",
+    "types": [1],
+    "sizes": [26, 30, 40],
+    "price": 11,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 4,
+    "image": "https://images.pizzahut.es/Products/Original/Cheeseburger-2076.jpg",
+    "title": "Cheese-borger",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 14,
+    "category": 3,
+    "rating": 8
+  },
+  {
+    "id": 5,
+    "image": "https://images.pizzahut.es/Products/Original/ph_pizzapepperonilovers_card-1699.jpg",
+    "title": "Pepperoni-lovers",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 12,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 7,
+    "image": "https://images.pizzahut.es/Products/Original/ph_pizzamargarita_card-1726.jpg",
+    "title": "Margarita",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 10,
+    "category": 4,
+    "rating": 10
+  },
+  {
+    "id": 8,
+    "image": "https://images.pizzahut.es/Products/Original/ph_pizzasingluten4quesos_card-1708.jpg",
+    "title": "4 Quesos",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 12,
+    "category": 5,
+    "rating": 10
+  },
+  {
+    "id": 9,
+    "image": "https://images.pizzahut.es/Products/Original/ph_pizzaveggielovers_card-1703.jpg",
+    "title": "Vegie-lovers",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 12,
+    "category": 5,
+    "rating": 7
+  }
+]

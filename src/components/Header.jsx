@@ -1,13 +1,11 @@
+import logoJpg from '../assets/img/logo1.jpg';
+
 function Header() {
   return (
     <div className="header">
       <div className="container">
         <div className="header__logo">
-          <img
-            width="38"
-            src="https://png.pngtree.com/png-clipart/20220719/original/pngtree-pizza-logo-design-png-image_8363624.png"
-            alt="Pizza logo"
-          />
+          <img width="38" src={logoJpg} alt="Pizza logo" />
           <div>
             <h1>React Pizza</h1>
             <p>La pizza mas rica del mundo</p>
