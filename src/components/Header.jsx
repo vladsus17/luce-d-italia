@@ -1,18 +1,22 @@
+import { Link } from 'react-router';
 import logoJpg from '../assets/img/logo1.jpg';
 
 function Header() {
   return (
     <div className="header">
       <div className="container">
-        <div className="header__logo">
-          <img width="38" src={logoJpg} alt="Pizza logo" />
-          <div>
-            <h1>React Pizza</h1>
-            <p>La pizza mas rica del mundo</p>
+        <Link to="/">
+          <div className="header__logo">
+            <img width="38" src={logoJpg} alt="Pizza logo" />
+            <div>
+              <h1>React Pizza</h1>
+              <p>La pizza mas rica del mundo</p>
+            </div>
           </div>
-        </div>
+        </Link>
+
         <div className="header__cart">
-          <a href="/cart.html" className="button button--cart">
+          <Link to="/cart" className="button button--cart">
             <span>16€</span>
             <div className="button__delimiter"></div>
             <svg
@@ -44,7 +48,7 @@ function Header() {
               />
             </svg>
             <span>3</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

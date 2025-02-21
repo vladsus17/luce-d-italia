@@ -66,3 +66,9 @@
     letter-spacing: 0.015em;
   }
 }
+
+.content_items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
