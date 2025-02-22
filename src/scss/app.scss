@@ -13,25 +13,78 @@ body {
   margin: 50px auto;
   border-radius: 10px;
   max-width: 1400px;
+
+  @media (max-width: 645px) {
+    width: calc(100vw - 25px);
+    margin-top: 15px;
+  }
 }
 
 .content {
   padding: 40px 0;
 
-  &__title {
+  &_title {
     margin: 35px 0;
+    justify-items: center; /* Alinea los elementos en el eje horizontal */
+    align-items: center;
   }
 
-  &__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  &_items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+
+    @media (max-width: 1350px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 1000px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 730px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 1260px) {
+      .categories {
+        width: 100%;
+        overflow-x: scroll;
+
+        ul {
+          width: 785px;
+        }
+      }
+      .sort {
+        padding-left: 25px;
+        b {
+          display: none;
+        }
+      }
+    }
+
+    @media (max-width: 760px) {
+      .categories {
+        ul {
+          li {
+            padding: 8px 20px;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 820px) {
+      .categories {
+        margin-top: 30px;
+      }
+      flex-direction: column-reverse;
+    }
   }
 }
 
@@ -44,6 +97,9 @@ body {
     margin: 90px auto;
     .content__title {
       margin: 0;
+      font-weight: 800;
+      margin-top: 60px;
+      margin-bottom: 50px;
     }
   }
 }
@@ -55,7 +111,7 @@ body {
     align-items: center;
   }
 
-  .content__title {
+  .content_title {
     display: flex;
     align-items: center;
     font-size: 32px;
@@ -147,6 +203,18 @@ body {
       align-items: center;
       justify-content: space-between;
       width: 13%;
+      @media (max-width: 431px) {
+        padding-left: 35px;
+      }
+      @media (max-width: 391px) {
+        padding-left: 27px;
+      }
+      @media (max-width: 377px) {
+        padding-left: 20px;
+      }
+      @media (max-width: 461px) {
+        padding-left: 12px;
+      }
 
       &-minus {
         svg {
@@ -166,6 +234,9 @@ body {
       align-items: center;
       justify-content: center;
       width: 33%;
+      @media (max-width: 431px) {
+        display: block;
+      }
 
       b {
         font-weight: bold;
