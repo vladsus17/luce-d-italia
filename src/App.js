@@ -7,9 +7,10 @@ import PageNotFound from './pages/PageNotFound';
 import Cart from './pages/Cart';
 
 function App() {
+  const [searchValue, setSearchValue] = React.useState('');
   return (
     <div className="wrapper">
-      <Header />
+      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
       <div className="content">
         <div className="container">
           <Routes>
