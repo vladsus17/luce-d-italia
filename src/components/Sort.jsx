@@ -34,7 +34,10 @@ function Sort({ value, onChangeSort }) {
             {list.map((obj, index) => (
               <li
                 key={index}
-                onClick={() => onChangeSort(obj)}
+                onClick={() => {
+                  onChangeSort(obj);
+                  setIsVisible(!isVisible);
+                }}
                 className={value.sortProperty === obj.sortProperty ? 'active' : ''}>
                 {obj.name}
               </li>
