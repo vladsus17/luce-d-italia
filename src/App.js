@@ -6,16 +6,10 @@ import Home from './pages/Home';
 import PageNotFound from './pages/PageNotFound';
 import Cart from './pages/Cart';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { decrement, increment } from './redux/slices/filterSlice';
-
 export const SearchContext = React.createContext();
 
 function App() {
   const [searchValue, setSearchValue] = React.useState('');
-
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
 
   return (
     <div className="wrapper">

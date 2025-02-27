@@ -7,18 +7,17 @@ import Skeleton from '../components/PizzaBlock/Skeleton';
 import Pagination from '../components/Pagination';
 import { SearchContext } from '../App';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { setCategoryId } from '../redux/slices/filterSlice';
+
 const Home = () => {
+  const dispatch = useDispatch();
+  const { categoryId, sortType } = useSelector((state) => state.filter);
+
   const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsloading] = React.useState(true);
-  const [categoryId, setCategoryId] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [sortType, setSortType] = React.useState({
-    name: 'popular ↑',
-    sortProperty: 'rating',
-  });
-
-  const totalPages = 3;
 
   React.useEffect(() => {
     setIsloading(true);
@@ -45,7 +44,7 @@ const Home = () => {
   const skeletons = Array.from({ length: 9 }).map((_, index) => <Skeleton key={index} />);
 
   const handleCategoryChange = (index) => {
-    setCategoryId(index);
+    dispatch(setCategoryId(index));
     setCurrentPage(1);
   };
 
@@ -53,15 +52,11 @@ const Home = () => {
     <div>
       <div className="content__top">
         <Categories value={categoryId} onClickCategory={handleCategoryChange} />
-        <Sort value={sortType} onChangeSort={(index) => setSortType(index)} />
+        <Sort />
       </div>
       <h2 className="content_title">Todas las pizzas</h2>
       <div className="content_items">{isLoading ? skeletons : pizzas}</div>
-      <Pagination
-        onChangePage={(number) => setCurrentPage(number)}
-        pageCount={totalPages}
-        currentPage={currentPage}
-      />
+      <Pagination onChangePage={(number) => setCurrentPage(number)} currentPage={currentPage} />
     </div>
   );
 };
