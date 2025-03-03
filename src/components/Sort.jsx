@@ -15,24 +15,31 @@ function Sort() {
   const dispatch = useDispatch();
 
   const sort = useSelector((state) => state.filter.sortType);
+  const sortRef = React.useRef();
 
   const [isVisible, setIsVisible] = React.useState(false);
-  const list = [
-    { name: 'popular ↑', sortProperty: 'rating' },
-    { name: 'popular ↓', sortProperty: '-rating' },
-    { name: 'precio ↑', sortProperty: 'price' },
-    { name: 'precio ↓', sortProperty: '-price' },
-    { name: 'letra a-z', sortProperty: 'title' },
-    { name: 'letra z-a', sortProperty: '-title' },
-  ];
 
   const onChangeSort = (obj) => {
     dispatch(setSort(obj));
     setIsVisible(false);
   };
 
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sortRef.current && !sortRef.current.contains(event.target)) {
+        setIsVisible(false);
+      }
+    };
+
+    document.body.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="sort">
+    <div ref={sortRef} className="sort">
       <div className="sort__label">
         <svg
           width="10"
