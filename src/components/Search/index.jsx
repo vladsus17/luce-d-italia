@@ -1,6 +1,5 @@
 import React from 'react';
-
-import debounce from 'lodash.debounce';
+import { debounce } from 'lodash';
 
 import styles from './Search.module.scss';
 import { SearchContext } from '../../App';
