@@ -176,6 +176,9 @@ body {
       img {
         width: 80px;
         height: 80px;
+        @media (max-width: 800px) {
+          display: none;
+        }
       }
     }
 
@@ -184,6 +187,7 @@ body {
       flex-direction: column;
       justify-content: center;
       width: 40%;
+      padding-left: 20px;
 
       h3 {
         font-weight: bold;
@@ -344,7 +348,7 @@ body {
 
   &--empty {
     margin: 60px auto;
-    width: 560px;
+    width: auto;
     text-align: center;
 
     h2 {
