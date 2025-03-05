@@ -8,6 +8,9 @@ import CartItem from '../components/CartItem';
 import { clearItem } from '../redux/slices/cartSlice';
 
 const Cart = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const dispatch = useDispatch();
   const { totalPrice, items } = useSelector((state) => state.cart);
   const totalItems = items.reduce((total, item) => total + item.count, 0);

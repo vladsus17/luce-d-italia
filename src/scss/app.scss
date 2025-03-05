@@ -23,6 +23,25 @@ body {
 .content {
   padding: 40px 0;
 
+  &_error-info {
+    margin: 60px auto;
+    width: auto;
+    text-align: center;
+
+    h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 145.4%;
+      letter-spacing: 0.01em;
+      color: #777777;
+    }
+  }
+
   &_title {
     margin: 35px 0;
     justify-items: center;
@@ -103,8 +122,309 @@ body {
     }
   }
 }
-
 .cart {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .content_title {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+
+    svg {
+      position: relative;
+      top: -2px;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      path {
+        stroke: $black;
+        stroke-width: 1.9;
+      }
+    }
+  }
+
+  &__clear {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    @include noselect();
+
+    span {
+      display: inline-block;
+      margin-left: 7px;
+      color: #b6b6b6;
+      font-size: 18px;
+    }
+
+    span,
+    svg,
+    path {
+      transition: all $duration ease-in-out;
+    }
+
+    &:hover {
+      svg {
+        path {
+          stroke: darken($color: #b6b6b6, $amount: 50);
+        }
+      }
+      span {
+        color: darken($color: #b6b6b6, $amount: 50);
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    width: 100%;
+    border-top: 1px solid $gray-line;
+    padding-top: 30px;
+    margin-top: 30px;
+
+    &-img {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+      width: 10%;
+
+      img {
+        width: 80px;
+        height: 80px;
+        @media (max-width: 800px) {
+          display: none; // Oculta la imagen en pantallas pequeñas
+        }
+      }
+
+      @media (max-width: 800px) {
+        width: 0; // Se asegura de que el contenedor no ocupe espacio cuando se oculte la imagen
+      }
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 40%;
+      padding-left: 20px;
+
+      h3 {
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 27px;
+        letter-spacing: 0.01em;
+      }
+
+      p {
+        font-size: 18px;
+        color: #8d8d8d;
+      }
+
+      @media (max-width: 800px) {
+        width: 100%; // En pantallas pequeñas, hacer que ocupe todo el espacio disponible
+        padding-left: 0; // Asegura que no haya espacio extra a la izquierda
+      }
+    }
+
+    &-count {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 13%;
+      @media (max-width: 431px) {
+        padding-left: 35px;
+      }
+      @media (max-width: 391px) {
+        padding-left: 27px;
+      }
+      @media (max-width: 377px) {
+        padding-left: 20px;
+      }
+      @media (max-width: 461px) {
+        padding-left: 12px;
+      }
+
+      &-minus {
+        svg {
+          path:first-of-type {
+            display: none;
+          }
+        }
+      }
+
+      b {
+        font-size: 22px;
+      }
+
+      @media (max-width: 800px) {
+        width: 100%; // Ocupar todo el espacio disponible en pantallas pequeñas
+        padding-left: 0;
+      }
+    }
+
+    &-price {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 33%;
+      @media (max-width: 431px) {
+        display: block;
+      }
+
+      b {
+        font-weight: bold;
+        font-size: 22px;
+        letter-spacing: 0.01em;
+      }
+
+      @media (max-width: 800px) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &-remove {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 4%;
+
+      .button {
+        border-color: darken($color: $gray-line, $amount: 20);
+      }
+
+      svg {
+        transform: rotate(45deg);
+
+        path {
+          fill: darken($color: $gray-line, $amount: 15);
+        }
+      }
+
+      .button {
+        svg {
+          width: 11.5px;
+          height: 11.5px;
+          position: relative;
+        }
+        &:hover,
+        &:active {
+          border-color: darken($color: $gray-line, $amount: 80);
+          background-color: darken($color: $gray-line, $amount: 80);
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    margin: 50px 0;
+
+    &-details {
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        font-size: 22px;
+
+        &:last-of-type {
+          b {
+            color: $orange;
+          }
+        }
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+
+      .go-back-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 210px;
+
+        border-color: #b6b6b6; /*darken($color: $gray-line, $amount: 30)*/
+
+        span {
+          color: #b6b6b6;
+          font-weight: 500;
+          font-weight: 600;
+        }
+
+        &:hover {
+          background-color: darken($color: $gray-line, $amount: 90);
+          border-color: darken($color: $gray-line, $amount: 90);
+
+          span {
+            color: $gray-line;
+          }
+        }
+
+        svg {
+          margin-right: 12px;
+          path {
+            fill: transparent;
+            stroke-width: 2;
+          }
+        }
+      }
+
+      .pay-btn {
+        font-size: 16px;
+        font-weight: 600;
+        width: 210px;
+        padding: 16px;
+      }
+    }
+  }
+
+  &--empty {
+    margin: 60px auto;
+    width: auto;
+    text-align: center;
+
+    h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 145.4%;
+      letter-spacing: 0.01em;
+      color: #777777;
+    }
+
+    icon {
+      position: relative;
+      top: 2px;
+    }
+
+    img {
+      display: block;
+      width: 300px;
+      margin: 45px auto 60px;
+    }
+
+    .button--black {
+      padding: 12px 0 14px;
+      width: 230px;
+      margin: 0 auto;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+}
+
+/*.cart {
   &__top {
     display: flex;
     justify-content: space-between;
@@ -383,4 +703,4 @@ body {
       font-size: 18px;
     }
   }
-}
+}*/
