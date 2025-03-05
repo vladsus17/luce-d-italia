@@ -2,18 +2,20 @@ import React from 'react';
 import { debounce } from 'lodash';
 
 import styles from './Search.module.scss';
-import { SearchContext } from '../../App';
+
+import { useDispatch } from 'react-redux';
+import { setSearchValue } from '../../redux/slices/filterSlice';
 
 const Search = () => {
+  const dispatch = useDispatch();
   const [value, setValue] = React.useState('');
-  const { searchValue, setSearchValue } = React.useContext(SearchContext);
 
   const inputRef = React.useRef();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const updateSearchValue = React.useCallback(
     debounce((str) => {
-      setSearchValue(str);
+      dispatch(setSearchValue(str));
     }, 250),
     [],
   );
@@ -24,8 +26,8 @@ const Search = () => {
   };
 
   const onClickClear = () => {
-    setSearchValue('');
     setValue('');
+    dispatch(setSearchValue(''));
     inputRef.current.focus();
   };
 
@@ -45,7 +47,7 @@ const Search = () => {
         className={styles.input}
         placeholder="Buscar pizza..."
       />
-      {searchValue && (
+      {value && (
         <svg
           onClick={onClickClear}
           className={styles.clearIcon}
