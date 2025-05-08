@@ -68,9 +68,11 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
     description: record.fields['Description'],
     size: record.fields['Size'],
     color: record.fields['Color'],
+    gender: record.fields['Gender'],
     quantity: record.fields['Quantity'],
     salesTransaction: record.fields['Sales Transactions'],
     image: record.fields['Item Photo']?.[0]?.thumbnails?.large?.url || '',
+    price: record.fields['Price'],
   }));
 });
 

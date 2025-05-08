@@ -101,7 +101,7 @@ const Home = () => {
 export default Home;*/
 
 import React from 'react';
-import Categories from '../components/Categories';
+import GenderFilter from '../components/GenderFilter';
 import Sort from '../components/Sort';
 import Pagination from '../components/Pagination';
 import { list } from '../components/Sort';
@@ -118,6 +118,9 @@ const Home = () => {
   const navigate = useNavigate();
   const { categoryId, sortType, currentPage, searchValue } = useSelector(selectFilter);
   const { items = [], status = 'loading' } = useSelector(selectProductsData) || {};
+  const { genderFilter } = useSelector(selectFilter);
+  const filteredItems =
+    genderFilter === 'Todos' ? items : items.filter((item) => item.gender === genderFilter);
 
   const handleCategoryChange = (index) => {
     dispatch(setCategoryId(index));
@@ -162,7 +165,7 @@ const Home = () => {
   return (
     <div>
       <div className="content__top">
-        <Categories value={categoryId} onClickCategory={handleCategoryChange} />
+        <GenderFilter />
         <Sort />
       </div>
       <h2 className="content_title">Todos los productos</h2>
@@ -177,7 +180,7 @@ const Home = () => {
         <div className="content_items">
           {status === 'loading'
             ? skeletons
-            : items.map((item) => (
+            : filteredItems.map((item) => (
                 <ProductCard
                   key={item.id}
                   id={item.id}
@@ -186,6 +189,7 @@ const Home = () => {
                   size={item.size}
                   color={item.color}
                   quantity={item.quantity}
+                  price={item.price}
                 />
               ))}
         </div>

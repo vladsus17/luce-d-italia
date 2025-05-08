@@ -5,6 +5,27 @@
 body {
   background-color: $background;
 }
+.footer-contact {
+  p {
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    @media (max-width: 645px) {
+      font-size: 7px;
+    }
+  }
+  a {
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    &:hover {
+      color: #9370db;
+    }
+    @media (max-width: 645px) {
+      font-size: 7px;
+    }
+  }
+}
 
 .wrapper {
   max-width: 96%;
@@ -79,10 +100,10 @@ body {
     @media (max-width: 1260px) {
       .categories {
         width: 100%;
-        overflow-x: scroll;
+        //overflow-x: scroll;
 
         ul {
-          width: 785px;
+          //width: 785px;
         }
       }
       .sort {

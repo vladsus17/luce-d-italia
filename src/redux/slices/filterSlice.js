@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   searchValue: '',
   categoryId: 0,
+  genderFilter: 'Todos',
   currentPage: 1,
   sortType: {
     name: 'popular ↑',
@@ -31,13 +32,22 @@ export const filterSlice = createSlice({
       state.categoryId = Number(action.payload.categoryId);
       state.sortType = action.payload.sortType;
     },
+    setGenderFilter(state, action) {
+      state.genderFilter = action.payload;
+    },
   },
 });
 
 export const selectFilter = (state) => state.filter;
 export const searchValue = (state) => state.filter.searchValue;
 
-export const { setCategoryId, setSort, setCurrentPage, setFilters, setSearchValue } =
-  filterSlice.actions;
+export const {
+  setCategoryId,
+  setSort,
+  setCurrentPage,
+  setFilters,
+  setSearchValue,
+  setGenderFilter,
+} = filterSlice.actions;
 
 export default filterSlice.reducer;
